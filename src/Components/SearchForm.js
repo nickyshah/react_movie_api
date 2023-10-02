@@ -30,6 +30,8 @@ export const SearchForm = ({addToMovieList}) => {
         setMovie({})
         strRef.current.value = ""
     }
+
+    
   return (
     <div className="bg-dark p-5 rounded shadow-lg">
       <div className="row gap-2">
@@ -58,7 +60,7 @@ export const SearchForm = ({addToMovieList}) => {
         <div className="col-md d-flex justify-content-center"> 
             
             {error && <div className="alert alert-danger">{error}</div>}
-            {movie?.imdbID && <CustomCard  movie = {movie} func={func} />}
+            {movie?.imdbID && <CustomCard  movie = {movie} func={func}  />}
             
         </div>
       </div>

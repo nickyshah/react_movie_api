@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export const CustomCard = ({movie, func}) => {
-  console.log(movie)
-  // const {poster} = movie
+export const CustomCard = ({movie, func, handleOnDelete}) => {
   
 
   return (
@@ -22,7 +20,7 @@ export const CustomCard = ({movie, func}) => {
     }
     
     <div className="d-grid">
-      <button className='btn btn-danger mt-2'>Delete</button>
+      <button className='btn btn-danger mt-2' onClick={()=>handleOnDelete(movie?.imdbID)}>Delete</button>
     </div>
   </div>
 </div>

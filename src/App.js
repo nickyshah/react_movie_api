@@ -10,11 +10,25 @@ function App() {
 
   const addToMovieList = (movie) => {
     // alert(movie)
-    console.log(movie)
+    // console.log(movie)
     setMovieList(
       [...movieList, movie]
     )
   }
+
+  const handleOnDelete = (imdbID) => {
+    if (window.confirm("Are You Sure Want To Delete? ")){
+
+      // filter 
+      const deleteButton = movieList.filter((item) => item.imdbID !== imdbID)
+      setMovieList(deleteButton)
+
+    }
+
+  }
+  
+
+
  
   return (
     <div className="wrapper bg-dark text-warning min-vh-100 ">
@@ -31,7 +45,7 @@ function App() {
 
 
         {/* Search area */}
-          <SearchForm addToMovieList={addToMovieList} />
+          <SearchForm addToMovieList={addToMovieList}  />
             {/* form */}
 
 
@@ -43,7 +57,7 @@ function App() {
 
           {/* cards */}
 
-      <Display movieList={movieList} />
+      <Display movieList={movieList} handleOnDelete={handleOnDelete} />
       </div> 
     </div>
   )
