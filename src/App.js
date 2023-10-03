@@ -30,9 +30,6 @@ function App() {
     }
 
   }
-  
-
-
  
   return (
     <div className="wrapper bg-dark text-warning min-vh-100 ">
