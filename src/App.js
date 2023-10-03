@@ -8,12 +8,16 @@ function App() {
 
   const [movieList, setMovieList] = useState([])
 
+
   const addToMovieList = (movie) => {
+    const noRepeat = movieList.filter((item)=> item.imdbID !== movie.imdbID)
     // alert(movie)
     // console.log(movie)
-    setMovieList(
-      [...movieList, movie]
-    )
+    setMovieList([...noRepeat, movie])
+    // setMovieList(
+    //   [...movieList, movie]
+    // )
+    
   }
 
   const handleOnDelete = (imdbID) => {

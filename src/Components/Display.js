@@ -16,6 +16,10 @@ export const Display = ({movieList, handleOnDelete}) => {
     selectedCategory === 'all' || item.mode === selectedCategory
   ));
 
+  
+
+  
+
   const func = (mode) => {
     if (mode !== "delete"){
         movieList({...movieList, mode})

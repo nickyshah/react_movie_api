@@ -15,15 +15,11 @@ export const SearchForm = ({addToMovieList, handleOnDelete}) => {
         const randChar = randomCharGenerator();
         // alert(randChar)
 
-        // const randMovie = await fetchMovie(randChar)
-
-        // async/await funcion method
-
         // IEFE method
         (async()=>{
             const randMovie = await fetchMovie(randChar)
             setMovie(randMovie)
-        })()
+        })();
 
     }, [])
 
