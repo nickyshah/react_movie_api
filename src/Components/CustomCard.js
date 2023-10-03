@@ -20,7 +20,11 @@ export const CustomCard = ({movie, func, handleOnDelete}) => {
     }
     
     <div className="d-grid">
-      <button className='btn btn-danger mt-2' onClick={()=>handleOnDelete(movie?.imdbID)}>Delete</button>
+      <button className='btn btn-danger mt-2' 
+      onClick={()=> {
+      func("delete")
+      handleOnDelete(movie.imdbID)}
+      }>Delete</button>
     </div>
   </div>
 </div>

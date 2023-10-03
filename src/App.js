@@ -45,7 +45,7 @@ function App() {
 
 
         {/* Search area */}
-          <SearchForm addToMovieList={addToMovieList}  />
+          <SearchForm addToMovieList={addToMovieList} handleOnDelete={handleOnDelete} />
             {/* form */}
 
 

@@ -3,7 +3,8 @@ import { CustomCard } from "./CustomCard"
 
 export const Display = ({movieList, handleOnDelete}) => {
 
-  const [selectedCategory, setSelectedCategory] = useState('happy');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  
 
   const handleCategoryChange = (category) => {
     console.log(category)
@@ -14,6 +15,15 @@ export const Display = ({movieList, handleOnDelete}) => {
   const filteredMovies = movieList.filter(item => (
     selectedCategory === 'all' || item.mode === selectedCategory
   ));
+
+  const func = (mode) => {
+    if (mode !== "delete"){
+        movieList({...movieList, mode})
+        // setSelectedCategory([])
+    }} 
+
+    
+    
 
   return (
     <div className="bg-dark p-4 rounded shadow-lg mt-5">
@@ -36,7 +46,7 @@ export const Display = ({movieList, handleOnDelete}) => {
       </div>
       <div className="row p-2">
         <div className="col d-flex flex-wrap gap-3 justify-content-around">
-            {filteredMovies.map((item, i) =>(<CustomCard key={i} movie={item} handleOnDelete = {handleOnDelete}/>))}
+            {filteredMovies.map((item, i) =>(<CustomCard key={i} movie={item} handleOnDelete = {handleOnDelete} func={func}/>))}
             
         </div>
       </div>

@@ -1,12 +1,31 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CustomCard } from "./CustomCard";
 import { fetchMovie } from "../utils/axiosHelper";
+import {randomCharGenerator} from "../utils/randomStr"
 
-export const SearchForm = ({addToMovieList}) => {
+export const SearchForm = ({addToMovieList, handleOnDelete}) => {
 
     const [movie, setMovie] = useState({})
     const strRef = useRef("")
     const [error, setError] = useState("")
+
+
+
+    useEffect(()=>{
+        const randChar = randomCharGenerator();
+        // alert(randChar)
+
+        // const randMovie = await fetchMovie(randChar)
+
+        // async/await funcion method
+
+        // IEFE method
+        (async()=>{
+            const randMovie = await fetchMovie(randChar)
+            setMovie(randMovie)
+        })()
+
+    }, [])
 
     const handleOnSubmit = async (e) =>{
 
@@ -26,10 +45,17 @@ export const SearchForm = ({addToMovieList}) => {
     }
 
     const func = (mode) => {
-        addToMovieList({...movie, mode})
+        if (mode !== "delete"){
+            addToMovieList({...movie, mode})
         setMovie({})
         strRef.current.value = ""
+        } else{
+        setMovie({})
+        strRef.current.value = ""
+        }
+        console.log(mode)
     }
+    
 
     
   return (
@@ -60,7 +86,7 @@ export const SearchForm = ({addToMovieList}) => {
         <div className="col-md d-flex justify-content-center"> 
             
             {error && <div className="alert alert-danger">{error}</div>}
-            {movie?.imdbID && <CustomCard  movie = {movie} func={func}  />}
+            {movie?.imdbID && <CustomCard  movie = {movie} func={func} handleOnDelete={handleOnDelete} />}
             
         </div>
       </div>
