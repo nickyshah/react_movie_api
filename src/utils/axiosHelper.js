@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiUrl = "http://www.omdbapi.com/"
+const apiUrl = "https://www.omdbapi.com/"
 // ?apikey=4342db7d&t="
 const apiKey = "4342db7d&t"
 export const fetchMovie = async (moviename) => {
